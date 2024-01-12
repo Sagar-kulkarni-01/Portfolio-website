@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <script src="https://kit.fontawesome.com/1b8ba10eb9.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f7f7f7;
+            color: #333;
+        }
+
+        header {
+            font-size: 25px;
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #34495e;
+            padding: 10px;
+        }
+
+        nav a {
+            color: #ecf0f1;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #3e5771;
+        }
+
+        #home {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            background: #3498db;
+            color: #ecf0f1;
+            padding: 100px 20px;
+        }
+
+        #home-text {
+            flex: 1;
+            text-align: left;
+            padding-right: 20px;
+        }
+        #home-text p{
+            color:white;
+        }
+        #home h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        #home p {
+            
+            font-size: 1.2em;
+            margin-bottom: 40px;
+        }
+
+        #home-image {
+            flex: 1;
+        }
+
+        #home-image img {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        #cta-button {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        #cta-button:hover {
+            background-color: #3e5771;
+        }
+
+        section {
+            padding: 20px;
+            text-align: center;
+        }
+
+        section h2 {
+            color: #333;
+        }
+
+        section p {
+            color: #666;
+            line-height: 1.6;
+        }
+        #about {
+            background-color: #ecf0f1;
+            transition: background-color 0.3s ease;
+        }
+
+        /* #about:hover {
+            background-color: #d5d8dc;
+        } */
+
+        #about h2 {
+            color: #333;
+        }
+        #about li{
+            list-style: none;
+        }
+
+        #about p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        #about-details {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        #about-details div {
+            flex: 1;
+            margin: 10px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
+        }
+
+        #about-details div:hover {
+            transform:scale(1.2) ;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        #education,
+        #skills {
+            margin-top: 20px;
+        }
+
+        #education h3,
+        #skills h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .info-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .info-list li {
+            font-size: 14px;
+            list-style: none;
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 30px;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .info-list li::before {
+            content: '\2022';
+            position: absolute;
+            left: 0;
+            color: #3498db;
+        
+        }
+        footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        #portfolio {
+            background-color: #ecf0f1;
+        }
+
+        #portfolio h2 {
+            color: #333;
+        }
+
+        #portfolio p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        #project-categories {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .project-category {
+            margin: 0 10px;
+            padding: 10px;
+            background-color: #3498db;
+            color: #ecf0f1;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .project-category:hover {
+            background-color: #3e5771;
+        }
+
+        .project-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .project {
+            flex: 1;
+            margin: 10px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        #contact {
+            background-color: #dfe6e9;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        #contact h2 {
+            color: #333;
+        }
+
+        #contact form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #contact label {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        #contact input,
+        #contact textarea {
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #bdc3c7;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        #contact button {
+            background-color: #3498db;
+            color: #ecf0f1;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .img{
+            display: none;
+        }
+        #contact button:hover {
+            background-color: #3e5771;
+        }
+        .fa-instagram{
+            color:#ff00a6 !important;
+            margin-left:15px;
+            
+        }
+        .fa-github{
+            color:black;
+            margin-right:15px;
+            
+        }
+        #menu-icon {
+            display: none;
+            cursor: pointer;
+            color: #ecf0f1;
+            font-size: 24px;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+
+        #mobile-menu {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            background-color: #2c3e50;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        #mobile-menu a {
+            padding: 15px;
+            text-decoration: none;
+            color: #ecf0f1;
+            display: block;
+        }
+
+        #mobile-menu a:hover {
+            background-color: #34495e;
+        }
+
+        /* Media Queries */
+
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+
+            #menu-icon {
+                display: block;
+            }
+
+            #mobile-menu {
+                display: flex;
+            }
+            
+            #home{
+                background-image:url("png image.webp");
+                background-size:cover;
+                opacity: 1;
+            }
+            #home p{
+                opacity: 1;
+            }
+            #home-image{
+                display:none;
+            }
+            .fa-instagram{
+            color:#ff00a6 !important;
+        }
+        .fa-github{
+            color:black;
+            
+        }
+        }
+        
+        
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+        <h1>Sagar Kulkarni</h1>
+    </header>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="https://drive.google.com/file/d/16czUZQgH6Gpodn_RBaNqJJn0Facfqo6p/view?usp=drive_link">My Resume</a>
+    </nav>
+    <div id="menu-icon">&#9776;</div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+        <a href="https://drive.google.com/file/d/16czUZQgH6Gpodn_RBaNqJJn0Facfqo6p/view?usp=drive_link" download>My Resume</a>
+        
+    </div>
+    <section id="home">
+        <div class="img"></div>
+        <div id="home-text">
+            <h2>Welcome to My portfolio Website!</h2>
+            <p>Explore the amazing world of creativity and innovation with my portfolio.Please check out my Projects here</p>
+            <a href="https://github.com/Sagar-kulkarni-01" id="cta-button">My Github</a>
+            
+            
+        </div>
+        <div id="home-image"> 
+            <img src="png image.webp" alt="Background Image">
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Hello! I'm Sagar Kulkarni, a final year student majoring in Electronics and Communication. My passion lies in exploring the intersection of technology and creativity.</p>
+
+        <div id="about-details">
+        <div>
+            <h3>Education</h3>
+            <ul class="info-list" id="education">
+                <li>Final Year Electronics and Communication Engineering</li>
+                <li>KLE Institute Of technology, Hubballi</li>
+                <li>8.00 CGPA</li>
+            </ul>
+        </div>
+
+        <div>
+            <h3>Skills</h3>
+            <ul class="info-list" id="skills">
+                <li>Embedded Systems</li>
+                <li>Python Programming</li>
+                <li>Web Development</li>
+                
+            </ul>
+        </div>
+        <div>
+            <h3>Internships</h3>
+            <ul class="info-list" id="internship">
+                <li>Embedded System Internship -Emertxe Information Technology</li>
+                <li>Java Full Stack Internship - Wipro talentNext</li>
+                <li>Data science Internship - IndataAI</li>
+            </ul>
+        </div>
+
+
+        </div>
+    </section>
+
+    <section id="portfolio">
+        <h2>Projects</h2>
+        <p>Explore my diverse range of projects in electronics and software development.</p>
+
+        <div id="project-categories">
+            <div class="project-category" onclick="showCategory('electronics')">Electronics Projects</div>
+            <div class="project-category" onclick="showCategory('web')">Web Development</div>
+            <div class="project-category" onclick="showCategory('python')">Python Projects</div>
+            <div class="project-category" onclick="showCategory('dsa')">Data Structures & Algorithms</div>
+        </div>
+
+        <div class="project-list" id="electronics-projects">
+            <div class="project">
+                <h3>Smart Home Automation System</h3>
+                <p>An IoT-based home automation system that allows users to control lights, appliances, and temperature remotely.</p>
+            </div>
+            <div class="project">
+                <h3>RFID Based Attendance Tracking System</h3>
+                <p>Developed a RFID based Attendance tracking system using RFID tags, RFID reader and Arduino and implemented using Arduino IDE Software .</p>
+            </div>
+            <div class="project">
+                <h3>Microwave Oven</h3>
+                <p>developed a software based project using MPLAB Xid and PICSIM LAB.</p>
+            </div>
+            <div class="project">
+                <h3>Soil Moisture Sensor</h3>
+                <p>Implemented a project to sense the moisture content in soil.</p>
+            </div>
+        </div>
+
+        <div class="project-list" id="web-projects" style="display: none;">
+            <div class="project">
+                <h3>Personal Portfolio Website</h3>
+                <p>Designed and developed a personal portfolio website to showcase my skills and projects.</p>
+            </div>
+            <div class="project">
+                <h3>TIC-TAC-TOE Game</h3>
+                <p>Designed and developed a fun game using HTML,CSS,JavaScript</p>
+            </div>
+            <div class="project">
+                <h3>Weather App</h3>
+                <p>Developed an app that displays weather information for different cities.</p>
+            </div>
+            <div class="project">
+                <h3>Qrcode Generator</h3>
+                <p>Created a web application that generates QRCodes with custom text or image data.</p>
+            </div>
+        </div>
+
+        <div class="project-list" id="python-projects" style="display: none;">
+            <div class="project">
+                <h3>Machine Learning with Python</h3>
+                <p>Implemented various machine learning algorithms and models using Python, including classification and regression tasks.</p>
+            </div>
+            <div class="project">
+                <h3>House Price Prediction</h3>
+                <p>Implemented a machine learning model to predict the Hosuse price.</p>
+            </div>
+            <!-- Add more Python projects as needed -->
+        </div>
+
+        <div class="project-list" id="dsa-projects" style="display: none;">
+            <div class="project">
+                <h3>Typing-master</h3>
+                <p>Built a visualizer for various sorting algorithms to demonstrate their working and efficiency.</p>
+            </div>
+            <div class="project">
+                <h3>Data Structures Implementation</h3>
+                <p>Implemented fundamental data structures such as linked lists, trees, and graphs in Python.</p>
+            </div>
+            <!-- Add more Data Structures & Algorithms projects as needed -->
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <!-- Update the "action" attribute with your Formspree endpoint -->
+<form onsubmit="sendEmail();reset();return False" method="POST">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="message">Message:</label>
+    <textarea id="message" name="message" rows="4" required></textarea>
+
+    <button type="submit">Send Message</button>
+</form>
+<br>
+<!-- Update the "href" attribute value with your GitHub username and repository link -->
+<a href="https://github.com/username/repository"><i class="fa fa-github fa-xl fa-black"></i></a>
+<a href="https://www.linkdin.com"><i class="fa-brands fa-linkedin fa-xl"></i></a>
+<a href="https://www.instagram.com"><i class="fa-brands fa-instagram fa-xl"></i></a>
+    </section>
+
+    <footer>
+        &copy; 2023 Your Website. All rights reserved.
+    </footer>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+<script>
+        function sendEmail(){
+            Email.send({
+                Host:"smtp.gmail.com",
+                Username:"portfolio310@gmail.com",
+                password:"Portfolio@321",
+                To:"portfolio310@gmail.com",
+                From:document.getElementByID("email").value,
+                Subject:"Message from "+ document.getElementByID("name").value + "",
+
+            }).then(
+  message => alert(message)
+);
+        }
+        // JavaScript to toggle mobile menu visibility
+        document.getElementById('menu-icon').addEventListener('click', function () {
+            var mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.style.display = (mobileMenu.style.display === 'flex') ? 'none' : 'flex';
+        });
+    
+    function showCategory(category) {
+            document.getElementById('electronics-projects').style.display = 'none';
+            document.getElementById('web-projects').style.display = 'none';
+            document.getElementById('python-projects').style.display = 'none';
+            document.getElementById('dsa-projects').style.display = 'none';
+            document.getElementById(`${category}-projects`).style.display = 'flex';
+        }
+</script>
+</body>
+
+</html>
